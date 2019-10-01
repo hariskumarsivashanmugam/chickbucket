@@ -5,40 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chick Basket</title>
-    <link href="../ChickBasket/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="./css/styles.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Monoton|Poppins:600|Source+Sans+Pro|Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
+<script>
+function replace() {
+  document.getElementById("container").style.display="none";
+  document.getElementById("scene-container").style.display="block";
+  var audio = document.getElementById("audio");
+  audio.play();
+}
+</script>
  <!-- Splash Screen Works Fine. Do not touch the code -->
- <!-- <div class="container"> 
-     <div class="start-animation-container">
-        <div class="start-logo animated bounceIn delay-1s"><img src="../ChickBasket/assets/chick.svg" width=100% height=100px></div>
-        <div class="start-text animated bounceIn delay-1s">CHICK BASKET</div>
-        <div class="start-btn-container">
-            <div class="start-btn animated bounceInUp delay-2s">
-                    <div class="start-btn-text">START</div>
+ <div class="total-container">
+    <div id="container"> 
+        <div class="start-animation-container">
+            <div class="start-logo animated bounceIn delay-1s"><img src="./assets/chick.svg" width=100% height=100px></div>
+            <div class="start-text animated bounceIn delay-1s">CHICK BASKET</div>
+            <div class="start-btn-container" onclick="replace()">
+                <div class="start-btn animated bounceInUp delay-2s">
+                        <div class="start-btn-text">START</div>
+                </div>
             </div>
-        </div>
+            <div id="smooth"></div>
+        </div> 
     </div> 
-</div> -->
-    <div class="scene-container background-container">
-        <div class="scene">
+    <img id="image1" width="20" height="25" src="./anims/assets/egg.png"/>
+    <img id="image2" width="30" height="20" src="./anims/assets/eggbasket.png"/>
+    <div id="scene-container">
+        <audio id="audio" src="./audio/bg-music.mp3" loop></audio>
+        <div class="scene  background-container">
             <div class="top-bar-container">
-                <div class="life-container"></div>
-                <div class="pause-btn-conatiner"></div>
-                <div class="score-container"></div>
+                    <div class="score-container">
+                            <div class="score">SCORE</div>
+                            <div id="score" class="score-value"></div>
+                        </div>
+                <div id="life" class="life-container"></div>
+                <div class="pause-btn-conatiner">
+                    <img src="./assets/pause.png" width="50px" height="50px" onclick="paused()">
+                </div>
             </div>
             <div class="chick-container">
-                <div class="chick-one"><img src="../chickbasket/anims/assets/animnew.gif" width=500 height=500></div>
-            </div>
-            <div class="functionality">
+                <div class="chick">
+                <div class="chick-one"><img src="./anims/assets/New folder/animation.gif" width=250 height=250></div>
+                <div class="chick-two"><img src="./anims/assets/New folder/animation2.gif" width=250 height=250></div>
+                <div class="chick-three"><img src="./anims/assets/New folder/animation3.gif" width=250 height=250></div>
+                <div class="chick-four"><img src="./anims/assets/New folder/animation4.gif" width=250 height=250></div>
+                </div>
+                
+                <div class="functionality">
+                    <canvas id="canvas" width="1250" height="580">
 
+                    </canvas>
+                    <script src="./js/chickbasket.js"></script>
+                </div>
             </div>
             <div class="dummy-flex">
 
             </div>
         </div>
-    </div>
     
+    </div>
+</div>
+<div id="gameover" onclick="newgame()">GAME OVER<br></div>
+<div id="pause" onclick="resumed()">
+Game Paused
 
+</div>
 </html>
