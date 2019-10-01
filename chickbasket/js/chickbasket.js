@@ -25,7 +25,7 @@ var life_display=document.getElementById("life");
 var vy = 1;
 
 
-var ay = .1;
+var ay = 0.2;
 
 
 // animate
@@ -54,7 +54,7 @@ function animate() {
      eggx=x_position[Math.floor((Math.random()*4))];
     eggy = 40;
     vx = 2;
-    vy = 0.1;
+    vy=1;
   //    alert("Egg captured");
       
       
@@ -69,9 +69,10 @@ function animate() {
     eggx = x_position[Math.floor((Math.random()*4))];
     eggy = 40;
     vx = 2;
-    vy = 0.1;
+    vy=1;
+    
 //alert("Egg hit the floor");
-if(paused_flag==false)
+if(paused_flag==false&&lives>0)
 {
       lives--;
 }
@@ -79,6 +80,7 @@ if(paused_flag==false)
   if(lives==0)
     {
       document.getElementById("gameover").style.display = "block";
+      
       console.log("NEW GAME STARTS LIVES=10 SCORE =0 ");
       // lives=10;
       // score=0;
@@ -86,10 +88,11 @@ if(paused_flag==false)
      speed_increase_flag++;
   if(speed_increase_flag==5&&ay<0.5)
     {
-      ay+=0.1;
+      ay+=0.2;
       speed_increase_flag=0;
       
     }
+    
   }
   drawRect(basketx,baskety,basketwidth,basketheight);
 }
@@ -140,3 +143,6 @@ window.onkeydown = function(event) {
   
   var start_game=document.querySelector(".start-btn-text");
 start_game.addEventListener("click",function(){ score=0;lives=10;});
+function newgame(){
+location.reload();
+}
