@@ -62,6 +62,7 @@ function animate() {
       if(paused_flag==false)
       {
         score++;
+        reward();
       }
      
     }
@@ -75,6 +76,7 @@ function animate() {
 if(paused_flag==false&&lives>0)
 {
       lives--;
+      cry_hen();
 }
     console.log("Egg hit the floor + Lives = " + lives+" ");
   if(lives==0)
@@ -149,3 +151,11 @@ function newgame(){
 location.reload();
 }
 
+function cry_hen(){
+  var hen_cry =document.getElementById("eggcrack");
+  hen_cry.play();
+}
+function reward(){
+  var reward = document.getElementById("reward");
+  reward.play();
+}
