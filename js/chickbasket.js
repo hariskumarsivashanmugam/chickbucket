@@ -1,6 +1,6 @@
 var lives=10;
 var score =0;
-var paused_flag=false;
+var paused_flag=true;
 var paused_score;
 var paused_lives;
 var x_position=[290,495,710 ,910];
@@ -145,7 +145,7 @@ window.onkeydown = function(event) {
   }
   
   var start_game=document.querySelector(".start-btn-text");
-start_game.addEventListener("click",function(){ score=0;lives=10;});
+start_game.addEventListener("click",function(){ score=0;lives=10;paused_flag=false;});
 function newgame(){
 
 location.reload();
